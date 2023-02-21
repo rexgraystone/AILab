@@ -18,7 +18,6 @@ def genEdges(graph):
 print(genEdges(graph))
 
 def findIsolatedNodes(graph):
-    """ returns a set of isolated nodes. """
     isolated = set()
     for node in graph:
         if not graph[node]:
