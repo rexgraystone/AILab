@@ -8,17 +8,16 @@ graph = { "a" : {"c"},
           "f" : {}
         }
 
-def generate_edges(graph):
+def genEdges(graph):
     edges = []   
     for node in graph:
-        for neighbour in graph[node]:
-            edges.append({node, neighbour})
-
+        for neighbor in graph[node]:
+            edges.append({node, neighbor})
     return edges
 
-print(generate_edges(graph))
+print(genEdges(graph))
 
-def find_isolated_nodes(graph):
+def findIsolatedNodes(graph):
     """ returns a set of isolated nodes. """
     isolated = set()
     for node in graph:
@@ -26,63 +25,54 @@ def find_isolated_nodes(graph):
             isolated.add(node)
     return isolated
 class Graph(object):
-
-    def __init__(self, graph_dict=None):
-
-        if graph_dict == None:
-            graph_dict = {}
-        self._graph_dict = graph_dict
+    def __init__(self, graphDict=None):
+        if graphDict == None:
+            graphDict = {}
+        self._graphDict = graphDict
 
     def edges(self, vertice):
-
-        return self._graph_dict[vertice]
+        return self._graphDict[vertice]
         
-    def all_vertices(self):
+    def allVertices(self):
+        return set(self._graphDict.keys())
 
-        return set(self._graph_dict.keys())
+    def allEdges(self):
+        return self.__genEdges()
 
-    def all_edges(self):
+    def addVertex(self, vertex):
+        if vertex not in self._graphDict:
+            self._graphDict[vertex] = []
 
-        return self.__generate_edges()
-
-    def add_vertex(self, vertex):
-
-        if vertex not in self._graph_dict:
-            self._graph_dict[vertex] = []
-
-    def add_edge(self, edge):
-
+    def addEdge(self, edge):
         edge = set(edge)
         vertex1, vertex2 = tuple(edge)
         for x, y in [(vertex1, vertex2), (vertex2, vertex1)]:
-            if x in self._graph_dict:
-                self._graph_dict[x].add(y)
+            if x in self._graphDict:
+                self._graphDict[x].add(y)
             else:
-                self._graph_dict[x] = [y]
+                self._graphDict[x] = [y]
 
-    def __generate_edges(self):
-
+    def __genEdges(self):
         edges = []
-        for vertex in self._graph_dict:
-            for neighbour in self._graph_dict[vertex]:
-                if {neighbour, vertex} not in edges:
-                    edges.append({vertex, neighbour})
+        for vertex in self._graphDict:
+            for neighbor in self._graphDict[vertex]:
+                if {neighbor, vertex} not in edges:
+                    edges.append({vertex, neighbor})
         return edges
     
     def __iter__(self):
-        self._iter_obj = iter(self._graph_dict)
-        return self._iter_obj
+        self._iterObj = iter(self._graphDict)
+        return self._iterObj
     
     def __next__(self):
-
-        return next(self._iter_obj)
+        return next(self._iterObj)
 
     def __str__(self):
-        res = "vertices: "
-        for k in self._graph_dict:
+        res = "Vertices: "
+        for k in self._graphDict:
             res += str(k) + " "
-        res += "\nedges: "
-        for edge in self.__generate_edges():
+        res += "\nEdges: "
+        for edge in self.__genEdges():
             res += str(edge) + ""
         return res
 
