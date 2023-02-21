@@ -6,6 +6,7 @@ This repository contains all the Python, Prolog, and Lisp programs that I have e
 
 | Serial No. | File Name | Description |
 | :---: | :--- | :--- |
+| 1 | [1_Graph.py](https://github.com/rexgraystone/AILab/1_Graph.py) | A program to design & analyze the application of Artificial Intelligence for Graph Theory concept. |
 
 ## Miscellaneous Programs
 
