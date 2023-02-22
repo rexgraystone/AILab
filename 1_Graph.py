@@ -1,90 +1,63 @@
 # 1. Write a python program to design & analyze the application of Artificial Intelligence for Graph Theory concept.
 
-graph = { "a" : {"c"},
-          "b" : {"c", "e"},
-          "c" : {"a", "b", "d", "e"},
-          "d" : {"c"},
-          "e" : {"c", "b"},
-          "f" : {}
-        }
-
-def genEdges(graph):
-    edges = []   
-    for node in graph:
-        for neighbor in graph[node]:
-            edges.append({node, neighbor})
-    return edges
-
-print(genEdges(graph))
-
-def findIsolatedNodes(graph):
-    isolated = set()
-    for node in graph:
-        if not graph[node]:
-            isolated.add(node)
-    return isolated
-class Graph(object):
-    def __init__(self, graphDict=None):
-        if graphDict == None:
-            graphDict = {}
-        self._graphDict = graphDict
-
-    def edges(self, vertice):
-        return self._graphDict[vertice]
-        
-    def allVertices(self):
-        return set(self._graphDict.keys())
-
-    def allEdges(self):
-        return self.__genEdges()
-
-    def addVertex(self, vertex):
-        if vertex not in self._graphDict:
-            self._graphDict[vertex] = []
-
-    def addEdge(self, edge):
-        edge = set(edge)
-        vertex1, vertex2 = tuple(edge)
-        for x, y in [(vertex1, vertex2), (vertex2, vertex1)]:
-            if x in self._graphDict:
-                self._graphDict[x].add(y)
-            else:
-                self._graphDict[x] = [y]
-
-    def __genEdges(self):
-        edges = []
-        for vertex in self._graphDict:
-            for neighbor in self._graphDict[vertex]:
-                if {neighbor, vertex} not in edges:
-                    edges.append({vertex, neighbor})
-        return edges
+class City:
+    def __init__(self, name):
+        self.name = name
+        self.connection = {}
     
-    def __iter__(self):
-        self._iterObj = iter(self._graphDict)
-        return self._iterObj
+    def addConnection(self, city, distance):
+        self.connection[city] = distance
+
+class StateSpaceGraph:
+    def __init__(self):
+        self.cities = {}
+
+    def addCities(self, name):
+        city = City(name)
+        self.cities[name] = city
     
-    def __next__(self):
-        return next(self._iterObj)
+    def addConnection(self, city1, city2, distance):
+        self.cities[city1].addConnection(self.cities[city2], distance)
+        self.cities[city2].addConnection(self.cities[city1], distance)
 
-    def __str__(self):
-        res = "Vertices: "
-        for k in self._graphDict:
-            res += str(k) + " "
-        res += "\nEdges: "
-        for edge in self.__genEdges():
-            res += str(edge) + ""
-        return res
+    def shortestPath(self, start, end):
+        distances = {city: float('inf') for city in self.cities}
+        distances[start] = 0
+        visited = set()
+        unvisited = set(self.cities.values())
+
+        while unvisited:
+            currentCity = min(unvisited, key=lambda city: distances[city.name])
+            unvisited.remove(currentCity)
+            visited.add(currentCity)
+
+            for neighbor, distance in currentCity.connection.items():
+                if neighbor in visited:
+                    continue
+
+            newDistance = distances[currentCity.name] + distance
+            if newDistance < distances[neighbor.name]:
+                distances[neighbor.name] = newDistance
+
+        return distances[end]
+    
+graph = StateSpaceGraph()
+
+graph.addCities('A')
+graph.addCities('B')
+graph.addCities('C')
+graph.addCities('D')
+graph.addConnection('A', 'B', 5)
+graph.addConnection('A', 'C', 3)
+graph.addConnection('B', 'C', 2)
+graph.addConnection('B', 'D', 4)
+graph.addConnection('C', 'D', 1)
+
+firstCity = input((f"Enter the starting city: "))
+secondCity = input((f"Enter the destination city: "))
+print(f"The shortest distance between the cities {firstCity} and {secondCity} is {graph.shortestPath(firstCity, secondCity)}.")
 
 
-g = { "a" : {"d"},
-      "b" : {"c"},
-      "c" : {"b", "c", "d", "e"},
-      "d" : {"a", "c"},
-      "e" : {"c"},
-      "f" : {}
-    }
 
-graph = Graph(g)
 
-for vertice in graph:
-    print(f"Edges of vertice {vertice}: ", graph.edges(vertice))
+
