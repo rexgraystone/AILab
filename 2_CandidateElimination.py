@@ -1,6 +1,7 @@
 import pandas as pd
 
-df = pd.read_csv(r"Datasets/2_EnjoySports.csv", header = 0)
+file = "EnjoySports.csv" #replace with CarSales.csv
+df = pd.read_csv(f"Datasets/{file}", header = 0) 
 dataset = df.values.tolist()
 
 s = dataset[0][0:-1]
