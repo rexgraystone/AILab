@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv(r"Datasets/CandidateElimination.csv", header = 0)
+df = pd.read_csv(r"Datasets/2_EnjoySports.csv", header = 0)
 dataset = df.values.tolist()
 
 s = dataset[0][0:-1]
