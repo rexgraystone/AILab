@@ -1,3 +1,5 @@
+# 2. Write a Python program to implement and demonstrate the Candidate-Elimination algorithm to output a description of the set of all hypotheses consistent.
+
 import pandas as pd
 
 file = "EnjoySports.csv" #replace with CarSales.csv

@@ -1,3 +1,5 @@
+# 3. Write a Python program to remove punctuations, count the number of spaces, or replace a punctuation mark with a character from a given string.
+
 import string
 
 with open("3_Paragraph.txt", "r") as file:

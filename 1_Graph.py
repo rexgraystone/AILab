@@ -1,4 +1,4 @@
-# 1. Write a python program to design & analyze the application of Artificial Intelligence for Graph Theory concept.
+# 1. Write a Python program to design & analyze the application of Artificial Intelligence for Graph Theory concept.
 
 class City:
     def __init__(self, name):
