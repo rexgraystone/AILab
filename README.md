@@ -6,7 +6,7 @@ This repository contains all the Python, Prolog, and Lisp programs that I have e
 
 | Serial No. | File Name | Description |
 | :---: | :--- | :--- |
-| 1 | [1_Graph.py](https://github.com/rexgraystone/AILab/1_Graph.py) | A program to design & analyze the application of Artificial Intelligence for Graph Theory concept. |
+| 1 | [1_Graph.py](https://github.com/rexgraystone/AILab/blob/main/1_Graph.py) | A program to design & analyze the application of Artificial Intelligence for Graph Theory concept. |
 | 2 | [2_CandidateElimination.py](https://github.com/rexgraystone/AILab/2_CandidateElimination.py) | A program to implement and demonstrate the Candidate-Elimination algorithm to output a description of the set of all hypotheses consistent. |
 | 3 | [3_RemovePunctuations.py](https://github.com/rexgraystone/AILab/3_RemovePunctuations.py) | A program to remove punctuations, count the number of spaces, or replace a punctuation mark with a character from a given string. |
 
