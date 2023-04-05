@@ -40,24 +40,26 @@ class NaiveBayes:
             posteriors[category] = posterior
         return max(posteriors, key=posteriors.get)
     
-docs = [('The sky is blue', 'weather'), 
-        ('The sun is bright', 'weather'),
-        ('It is raining', 'weather'),
-        ('The news is depressing', 'politics'),
-        ('The election is coming up', 'politics'),
-        ('The election has ended', 'politics'),
-        ('The economy is doing good', 'economy'),
-        ('He lost his job because of the economy', 'economy'),
-        ('The economy is improving', 'economy'),
-        ('The movie was great', 'entertainment'),
-        ('I saw the movie at home', 'entertainment'),
-        ('I liked the movie', 'entertainment'),
-        ('I like to eat pizza', 'food'),
-        ('I just ate lunch', 'food'),
-        ('I eat rice once a day', 'food'),
-        ('The game was exciting', 'sports'),
-        ('The team played poorly', 'sports'),
-        ('The players were tired after the match', 'sports')]
+docs = [
+    ('The sky is blue', 'weather'), 
+    ('The sun is bright', 'weather'),
+    ('It is raining', 'weather'),
+    ('The news is depressing', 'politics'),
+    ('The election is coming up', 'politics'),
+    ('The election has ended', 'politics'),
+    ('The economy is doing good', 'economy'),
+    ('He lost his job because of the economy', 'economy'),
+    ('The economy is improving', 'economy'),
+    ('The movie was great', 'entertainment'),
+    ('I saw the movie at home', 'entertainment'),
+    ('I liked the movie', 'entertainment'),
+    ('I like to eat pizza', 'food'),
+    ('I just ate lunch', 'food'),
+    ('I eat rice once a day', 'food'),
+    ('The game was exciting', 'sports'),
+    ('The team played poorly', 'sports'),
+    ('The players were tired after the match', 'sports')
+]
 
 nb = NaiveBayes(['weather', 'politics', 'economy', 'entertainment', 'food', 'sports'])
 nb.train(docs)
