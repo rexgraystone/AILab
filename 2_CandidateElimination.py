@@ -13,7 +13,7 @@ print(f"The initial value of specific hypothesis is {s}")
 g = [['?' for _ in range(len(s))] for _ in range(len(s))]
 print(f"The initial value of general hypothesis is {g}")
 
-for row in dataset:
+for index, row in enumerate(dataset):
     if row[-1] == "Yes":
         for j in range(len(s)):
             if row[j] != s[j]:
@@ -25,7 +25,7 @@ for row in dataset:
                 g[j][j] = s[j]
             else:
                 g[j][j] = "?"
-    print(f"Instance: {dataset.index(row)+1}")
+    print(f"Instance: {index+1}")
     print(f"Specific boundary is: {s}")
     print(f"General boundary is: {g}")
 
