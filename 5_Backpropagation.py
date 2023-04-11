@@ -17,7 +17,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y)
 count_vect = CountVectorizer()
 X_train_dims = count_vect.fit_transform(X_train)
 X_test_dims = count_vect.transform(X_test)
-
 model = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
 model.fit(X_train_dims, y_train)
 prediction = model.predict(X_test_dims)
@@ -31,7 +30,6 @@ print(10*"-")
 test_stmt = [input("Enter any statement to predict: ")]
 test_dims = count_vect.transform(test_stmt)
 pred = model.predict(test_dims)
-# Print the predicted label of the statement
 for stmt, lbl in zip(test_stmt, pred):
     if lbl == 1:
         print("Statement is Positive")
