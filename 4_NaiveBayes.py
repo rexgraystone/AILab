@@ -1,3 +1,5 @@
+# 4. Write a Python program to omplement naïve bayes theorem to classify the English text.
+
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
