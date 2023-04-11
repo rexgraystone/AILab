@@ -7,7 +7,7 @@ df = pd.read_csv(f"Datasets/{file}", header = 0)
 dataset = df.values.tolist()
 
 s = dataset[0][0:-1]
-print(f"The initial value of specific hypothesis is {s}\n")
+print(f"The initial value of specific hypothesis is {s}")
 
 #initialize the general hypothesis
 g = [['?' for i in range(len(s))] for j in range(len(s))]
