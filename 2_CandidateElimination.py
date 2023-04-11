@@ -10,7 +10,7 @@ s = dataset[0][0:-1]
 print(f"The initial value of specific hypothesis is {s}")
 
 #initialize the general hypothesis
-g = [['?' for i in range(len(s))] for j in range(len(s))]
+g = [['?' for _ in range(len(s))] for _ in range(len(s))]
 print(f"The initial value of general hypothesis is {g}")
 
 for row in dataset:
