@@ -30,8 +30,8 @@ test_stmt = [input("Enter any statement to predict: ")]
 test_dims = count_vect.transform(test_stmt)
 pred = model.predict(test_dims)
 # Print the predicted label of the statement
-for stmt,lbl in zip(test_stmt,pred):
+for stmt, lbl in zip(test_stmt, pred):
     if lbl == 1:
-        print("Statement is Negative")
-    else:
         print("Statement is Positive")
+    else:
+        print("Statement is Negative")
