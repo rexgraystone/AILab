@@ -16,7 +16,7 @@ count_vect = CountVectorizer()
 X_train_dims = count_vect.fit_transform(X_train)
 X_test_dims = count_vect.transform(X_test)
 
-model = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(15, 2), random_state=1, max_iter=500)
+model = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
 model.fit(X_train_dims, y_train)
 prediction = model.predict(X_test_dims)
 print('********Accuracy Metrics *********')
@@ -26,16 +26,12 @@ print(f'Precision: {precision_score(y_test, prediction)}')
 print(f'Confusion Matrix : \n{confusion_matrix(y_test, prediction)}')
 print(10*"-")
 
-choice = input("Would you like to test the model? Yes - 1, No - 0:\n")
-while True:
-    test_stmt = [input("Enter any statement to predict: ")]
-    test_dims = count_vect.transform(test_stmt)
-    pred = model.predict(test_dims)
-    for stmt, lbl in zip(test_stmt, pred):
-        if lbl == 1:
-            print("Statement is Positive")
-        else:
-            print("Statement is Negative")
-    choice = input("Would you like to enter another statement? Yes - 1, No - 0:\n")
-    if choice != "1":
-        break
+test_stmt = [input("Enter any statement to predict: ")]
+test_dims = count_vect.transform(test_stmt)
+pred = model.predict(test_dims)
+# Print the predicted label of the statement
+for stmt,lbl in zip(test_stmt,pred):
+    if lbl == 1:
+        print("Statement is Negative")
+    else:
+        print("Statement is Positive")
