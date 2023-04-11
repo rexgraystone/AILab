@@ -39,9 +39,3 @@ while True:
     choice = input("Would you like to enter another statement? Yes - 1, No - 0:\n")
     if choice != "1":
         break
-
-
-
-
-
-

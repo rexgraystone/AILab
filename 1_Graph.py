@@ -56,8 +56,3 @@ graph.addConnection('C', 'D', 1)
 firstCity = input((f"Enter the starting city: "))
 secondCity = input((f"Enter the destination city: "))
 print(f"The shortest distance between the cities {firstCity} and {secondCity} is {graph.shortestPath(firstCity, secondCity)}.")
-
-
-
-
-
