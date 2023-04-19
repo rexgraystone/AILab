@@ -2,8 +2,8 @@
 
 import numpy as np
 import pandas as pd
-import nltk
-nltk.download('stopwords')
+# import nltk
+# nltk.download('stopwords') # Uncomment these lines if you haven't downloaded 'stopwords'
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import re
@@ -51,6 +51,7 @@ plt.figure(figsize = (10,6))
 sns.heatmap(cm, annot=True, cmap="YlGnBu", xticklabels=['Negative', 'Positive'], yticklabels=['Negative', 'Positive'])
 plt.xlabel('Predicted values')
 plt.ylabel('Actual values')
+plt.show()
 
 best_accuracy = 0.0
 alpha_val = 0.0
@@ -86,4 +87,3 @@ if predict_sentiment(sample_review):
     print('This is a POSITIVE review!')
 else:
     print('This is a NEGATIVE review!')
-
