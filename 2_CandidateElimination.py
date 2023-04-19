@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-file = "EnjoySports.csv" #replace with CarSales.csv
+file = "2_EnjoySports.csv" #replace with 2_CarSales.csv
 df = pd.read_csv(f"Datasets/{file}", header = 0) 
 dataset = df.values.tolist()
 

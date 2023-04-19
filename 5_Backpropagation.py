@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
 
-data = pd.read_csv('Datasets/FiniteWords.csv', names=['Message', 'Label'])
+data = pd.read_csv('Datasets/5_FiniteWords.csv', names=['Message', 'Label'])
 print("The Total instances in the Dataset: ", data.shape[0])
 print(data)
 data['labelnum'] = data.Label.map({'pos': 1, 'neg': 0})

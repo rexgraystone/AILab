@@ -2,7 +2,7 @@
 
 import string
 
-with open("3_Paragraph.txt", "r") as file:
+with open("Datasets/3_Paragraph.txt", "r") as file:
 	textList = file.readlines()
 	text = ""
 	for element in textList:
