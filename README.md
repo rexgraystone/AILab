@@ -1,6 +1,6 @@
 # Artificial Intelligence Lab
 
-This repository contains all the Python, Prolog, and Lisp programs that I have executed for my Artificial Intelligence Course in my 3rd Year of Computer Science Undergrad program at Dayananda Sagar University, Bengaluru, India in Q1 2023.
+This repository contains all the Python programs that I have executed for my Artificial Intelligence Course in my 3rd Year of Computer Science Undergrad program at Dayananda Sagar University, Bengaluru, India in Q1 2023.
 
 ## List of Programs
 
