@@ -1,17 +1,19 @@
-import nltk
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('maxent_ne_chunker')
-nltk.download('words')
+# 7. Write a Python program to implement Named Entity recognition.
 
-sentence = """The Kashmir Files is a 2022 Indian Hindi-language drama film, \
-written and directed by Vivek Agnihotri. Produced by Zee Studios, \
-the film is based on the exodus of Kashmiri Pandits during the Kashmir Insurgency, \
-which it portrays as a genocide. \
-It stars Anupam Kher, Darshan Kumar, Pallavi Joshi and Mithun Chakraborty."""
+import nltk
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('maxent_ne_chunker')
+# nltk.download('words') # Uncomment these lines if the specified files aren't downloaded
+
+sentence = """Python is an interpreted, high-level and general-purpose programming language"
+       "Pythons design philosophy emphasizes code readability with"
+       "its notable use of significant indentation."
+       "Its language constructs and object-oriented approach aim to"
+       "help programmers write clear and"
+       "logical code for small and large-scale projects"""
 
 for sent in nltk.sent_tokenize(sentence):
     for chunk in nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(sent))):
         if hasattr(chunk, 'label'):
             print(f"{' '.join(c[0] for c in chunk):<35} {chunk.label()}")
-
