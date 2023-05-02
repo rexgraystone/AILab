@@ -56,14 +56,14 @@ plt.show()
 best_accuracy = 0.0
 alpha_val = 0.0
 for i in np.arange(0.1,1.1,0.1):
-  temp_classifier = MultinomialNB(alpha=i)
-  temp_classifier.fit(X_train, y_train)
-  temp_y_pred = temp_classifier.predict(X_test)
-  score = accuracy_score(y_test, temp_y_pred)
-  print(f"Accuracy score for alpha={round(i, 1)} is: {round(score*100, 2)}%")
-  if score > best_accuracy:
-    best_accuracy = score
-    alpha_val = i
+    temp_classifier = MultinomialNB(alpha=i)
+    temp_classifier.fit(X_train, y_train)
+    temp_y_pred = temp_classifier.predict(X_test)
+    score = accuracy_score(y_test, temp_y_pred)
+    print(f"Accuracy score for alpha={round(i, 1)} is: {round(score*100, 2)}%")
+    if score > best_accuracy:
+        best_accuracy = score
+        alpha_val = i
 print('--------------------------------------------')
 print(f'The best accuracy is {round(best_accuracy*100, 2)}% with alpha value as {round(alpha_val, 1)}')
 
