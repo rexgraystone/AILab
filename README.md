@@ -13,7 +13,7 @@ This repository contains all the Python programs that I have executed for my Art
 | 5 | [5_BackPropagation.py](https://github.com/rexgraystone/AILab/5_BackPropagation.py) | A program to implement the backpropagation algorithm for training a neural network. |
 | 6 | [6_RestaurantReview.py](https://github.com/rexgraystone/AILab/6_RestaurantReview.py) | A program to implement a model to correctly identify the sentiments of the user reviews for restaurants. |
 | 7 | [7_NamedEntity.py](https://github.com/rexgraystone/AILab/7_NamedEntity.py) | A program to to implement Named Entity recognition. |
-| 8 | [8_HandwrittenRecognition.py](https://github.com/rexgraystone/AILab/8_HandwrittenRecognition.py) | A program to recognize handwritten numbers from the MNIST dataset using Tensorflow.|
+| 8 | [8_HandwrittenRecognition.py](https://github.com/rexgraystone/AILab/8_HandwrittenRecognition.py) | A program to recognize handwritten numbers from the MNIST dataset using Tensorflow. |
 
 ## Miscellaneous Programs
 
