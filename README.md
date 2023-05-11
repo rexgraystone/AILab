@@ -14,6 +14,7 @@ This repository contains all the Python programs that I have executed for my Art
 | 6 | [6_RestaurantReview.py](https://github.com/rexgraystone/AILab/6_RestaurantReview.py) | A program to implement a model to correctly identify the sentiments of the user reviews for restaurants. |
 | 7 | [7_NamedEntity.py](https://github.com/rexgraystone/AILab/7_NamedEntity.py) | A program to to implement Named Entity recognition. |
 | 8 | [8_HandwrittenRecognition.py](https://github.com/rexgraystone/AILab/8_HandwrittenRecognition.py) | A program to recognize handwritten numbers from the MNIST dataset using Tensorflow. |
+| 9 | [9_HumidityPrediction](https://github.com/rexgraystone/AILab/9_HumidityPrediction) | An IoT project to predict the humidity of a room using a DHT11 sensor and a Raspberry Pi. |
 
 ## Miscellaneous Programs
 
