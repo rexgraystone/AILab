@@ -71,7 +71,7 @@ classifier = MultinomialNB(alpha=0.2)
 classifier.fit(X_train, y_train)
 
 def predict_sentiment(sample_review):
-    sample_review = re.sub(pattern='[^a-zA-Z]',repl=' ', string = sample_review)
+    sample_review = re.sub(pattern='[^a-zA-Z]',repl=' ', string=sample_review)
     sample_review = sample_review.lower()
     sample_review_words = sample_review.split()
     sample_review_words = [word for word in sample_review_words if not word in set(stopwords.words('english'))]
