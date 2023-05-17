@@ -18,7 +18,7 @@ file_path = 'Datasets/6_RestaurantReviews.tsv'
 df = pd.read_csv(file_path, sep='\t', header=0)
 
 corpus = []
-for i in range(0,1000):
+for i in range(0, 1000):
     review = re.sub(pattern='[^a-zA-Z]',repl=' ', string=df['Review'][i])
     review = review.lower()
     review_words = review.split()
@@ -32,7 +32,7 @@ cv = CountVectorizer(max_features=1500)
 X = cv.fit_transform(corpus).toarray()
 y = df.iloc[:, 1].values
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=0)
 classifier = MultinomialNB()
 classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
@@ -55,7 +55,7 @@ plt.show()
 
 best_accuracy = 0.0
 alpha_val = 0.0
-for i in np.arange(0.1,1.1,0.1):
+for i in np.arange(0.1, 1.1, 0.1):
     temp_classifier = MultinomialNB(alpha=i)
     temp_classifier.fit(X_train, y_train)
     temp_y_pred = temp_classifier.predict(X_test)
