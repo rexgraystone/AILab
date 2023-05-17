@@ -8,8 +8,6 @@ import numpy as np
 import random
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
-num_examples = 1
-rand_indices = np.random.randint(len(X_train), size=num_examples)
 tem = random.randint(1, 1000)
 images = X_train[tem]
 labels = y_train[tem]
