@@ -47,7 +47,7 @@ print(f"Recall score is: {round(recall,2)}.")
 
 cm = confusion_matrix(y_test, y_pred)
 
-plt.figure(figsize = (10,6))
+plt.figure(figsize=(10,6))
 sns.heatmap(cm, annot=True, cmap="YlGnBu", xticklabels=['Negative', 'Positive'], yticklabels=['Negative', 'Positive'])
 plt.xlabel('Predicted values')
 plt.ylabel('Actual values')
