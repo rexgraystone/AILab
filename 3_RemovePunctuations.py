@@ -3,9 +3,9 @@
 import string
 
 with open("Datasets/3_Paragraph.txt", "r") as file:
-	textList = file.readlines()
+	content = file.readlines()
 	text = ""
-	for element in textList:
+	for element in content:
 		text += element
 	file.close()
 	
@@ -13,7 +13,7 @@ print(f"The original contents of the file are:\n {text}")
 
 punctuations = string.punctuation
 
-countPunc, countSpaces, countReplace = 0, 0, 0
+count_punc, count_spaces, count_replace = 0, 0, 0
 
 repeat = True
 
@@ -25,14 +25,14 @@ while repeat:
 			for element in text:
 				if element in punctuations:
 					text = text.replace(element, "")
-					countPunc += 1
+					count_punc += 1
 			print(f"\nThe contents of the file after filtering the punctuations are:\n {text}")
-			print(f"The number of punctuation marks in the text are:\n\t{countPunc}")
+			print(f"The number of punctuation marks in the text are:\n\t{count_punc}")
 		case 2:
 			for element in text:
 				if element == " ":
-					countSpaces += 1
-			print(f"The number of spaces in the text are:\n\t{countSpaces}")
+					count_spaces += 1
+			print(f"The number of spaces in the text are:\n\t{count_spaces}")
 		case 3: 
 			punc = input("\nEnter the punctuation character: ")
 			replace = input("\nEnter the replacement character: ")
@@ -40,9 +40,9 @@ while repeat:
 				for element in text:
 					if element == punc:
 						text = text.replace(punc, replace)
-						countReplace += 1
+						count_replace += 1
 				print(f"\nThe contents of the file after replacing \'{punc}\' with \'{replace}\' are:\n {text}")
-				print(f"\nThe number of characters replaced are:\n\t{countReplace}")
+				print(f"\nThe number of characters replaced are:\n\t{count_replace}")
 			else:
 				print("Please enter a valid punctuation mark.")
 	repeat = int(input("\nWould you like to repeat? \t1. Yes 0. No\n"))

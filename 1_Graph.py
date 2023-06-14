@@ -5,20 +5,20 @@ class City:
         self.name = name
         self.connection = {}
     
-    def addConnection(self, city, distance):
+    def add_connection(self, city, distance):
         self.connection[city] = distance
 
 class StateSpaceGraph:
     def __init__(self):
         self.cities = {}
 
-    def addCities(self, name):
+    def add_cities(self, name):
         city = City(name)
         self.cities[name] = city
     
-    def addConnection(self, city1, city2, distance):
-        self.cities[city1].addConnection(self.cities[city2], distance)
-        self.cities[city2].addConnection(self.cities[city1], distance)
+    def add_connection(self, city1, city2, distance):
+        self.cities[city1].add_connection(self.cities[city2], distance)
+        self.cities[city2].add_connection(self.cities[city1], distance)
 
     def shortestPath(self, start, end):
         distances = {city: float('inf') for city in self.cities}
@@ -27,32 +27,32 @@ class StateSpaceGraph:
         unvisited = set(self.cities.values())
 
         while unvisited:
-            currentCity = min(unvisited, key=lambda city: distances[city.name])
-            unvisited.remove(currentCity)
-            visited.add(currentCity)
+            current_city = min(unvisited, key=lambda city: distances[city.name])
+            unvisited.remove(current_city)
+            visited.add(current_city)
 
-            for neighbor, distance in currentCity.connection.items():
+            for neighbor, distance in current_city.connection.items():
                 if neighbor in visited:
                     continue
 
-            newDistance = distances[currentCity.name] + distance
-            if newDistance < distances[neighbor.name]:
-                distances[neighbor.name] = newDistance
+            new_distance = distances[current_city.name] + distance
+            if new_distance < distances[neighbor.name]:
+                distances[neighbor.name] = new_distance
 
         return distances[end]
     
 graph = StateSpaceGraph()
 
-graph.addCities('A')
-graph.addCities('B')
-graph.addCities('C')
-graph.addCities('D')
-graph.addConnection('A', 'B', 5)
-graph.addConnection('A', 'C', 3)
-graph.addConnection('B', 'C', 2)
-graph.addConnection('B', 'D', 4)
-graph.addConnection('C', 'D', 1)
+graph.add_cities('A')
+graph.add_cities('B')
+graph.add_cities('C')
+graph.add_cities('D')
+graph.add_connection('A', 'B', 5)
+graph.add_connection('A', 'C', 3)
+graph.add_connection('B', 'C', 2)
+graph.add_connection('B', 'D', 4)
+graph.add_connection('C', 'D', 1)
 
-firstCity = input((f"Enter the starting city: "))
-secondCity = input((f"Enter the destination city: "))
-print(f"The shortest distance between the cities {firstCity} and {secondCity} is {graph.shortestPath(firstCity, secondCity)}.")
+start = input((f"Enter the starting city: "))
+end = input((f"Enter the destination city: "))
+print(f"The shortest distance between the cities {start} and {end} is {graph.shortestPath(start, end)}.")
